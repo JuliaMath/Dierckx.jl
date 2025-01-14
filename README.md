@@ -3,8 +3,8 @@ Dierckx.jl
 
 *Julia library for 1-d and 2-d splines*
 
-[![Build Status](https://img.shields.io/travis/kbarbary/Dierckx.jl.svg?style=flat-square&logo=github&label=CI)](https://github.com/kbarbary/Dierckx.jl/actions?query=workflow%3ACI)
-[![Coverage Status](http://img.shields.io/coveralls/kbarbary/Dierckx.jl.svg?style=flat-square)](https://coveralls.io/r/kbarbary/Dierckx.jl?branch=master)
+[![.github/workflows/ci.yml](https://github.com/JuliaMath/Dierckx.jl/actions/workflows/ci.yml/badge.svg)](https://github.com/JuliaMath/Dierckx.jl/actions/workflows/ci.yml)
+[![Coverage Status](http://img.shields.io/coveralls/JuliaMath/Dierckx.jl.svg?style=flat-square)](https://coveralls.io/github/JuliaMath/Dierckx.jl)
 
 This is a Julia wrapper for the
 [dierckx](http://www.netlib.org/dierckx/index.html) Fortran library,
@@ -28,11 +28,11 @@ of Julia.
 - Derivatives, integrals and roots of 1-d splines.
 - Parametric B-splines.
 
-Install (Julia 1.3 and later)
+Install (Julia 1.6 and later)
 -----------------------------
 
 ```julia
-(v1.3) pkg> add Dierckx
+(v1.6) pkg> add Dierckx
 ```
 
 (Type `]` to enter package mode.)
@@ -309,4 +309,4 @@ If you use this package in a pulication and wish to cite it, you may want to cit
 
 > Paul Dierckx, Curve and Surface Fitting with Splines, Oxford University Press, 1993
 
-If convenient, you can also include a link to the github repository for this package: https://github.com/kbarbary/Dierckx.jl.
+If convenient, you can also include a link to the github repository for this package: https://github.com/JuliaMath/Dierckx.jl.
