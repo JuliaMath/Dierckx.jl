@@ -952,7 +952,7 @@ function evaluate(spline::Spline2D, x::AbstractVector, y::AbstractVector)
     return z
 end
 
-function evaluate!(wrk::Vector{Float64}, Vspline::Spline2D, x::Real, y::Real)
+function evaluate!(wrk::Vector{Float64}, spline::Spline2D, x::Real, y::Real)
     ier = Ref{Int32}()
     lwrk = spline.kx + spline.ky + 2
     length(wrk) == lwrk || throw(ArgumentError("Length of work array not equal to required length of `spline.kx + spline.ky + 2 = $(spline.kx + spline.ky + 2)`"))
