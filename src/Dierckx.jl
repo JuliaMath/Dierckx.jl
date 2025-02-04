@@ -644,11 +644,11 @@ end
 
 _evaluate(t::Vector{Float64}, c::Matrix{Float64}, k::Int,
           x::Vector{Float64}, bc::Int) =
-    mapslices(v -> _evaluate(t, v, k, x, bc), c, dims=[2])
+    mapslices(v -> _evaluate(t, v, k, x, bc), c, dims=2)
 
 _evaluate(t::Vector{Float64}, c::Matrix{Float64}, k::Int,
           x::Real, bc::Int) =
-    vec(mapslices(v -> _evaluate(t, v, k, x, bc), c, dims=[2]))
+    vec(mapslices(v -> _evaluate(t, v, k, x, bc), c, dims=2))
 
 function evaluate(spline::ParametricSpline, x::AbstractVector)
     xin = convert(Vector{Float64}, x)
@@ -660,11 +660,11 @@ evaluate(spline::ParametricSpline, x::Real) =
 
 _derivative(t::Vector{Float64}, c::Matrix{Float64}, k::Int,
             x::Vector{Float64}, nu::Int, bc::Int, wrk::Vector{Float64}) =
-    mapslices(v -> _derivative(t, v, k, x, nu, bc, wrk), c, dims=[2])
+    mapslices(v -> _derivative(t, v, k, x, nu, bc, wrk), c, dims=2)
 
 _derivative(t::Vector{Float64}, c::Matrix{Float64}, k::Int,
             x::Real, nu::Int, bc::Int, wrk::Vector{Float64}) =
-    vec(mapslices(v -> _derivative(t, v, k, x, nu, bc, wrk), c, dims=[2]))
+    vec(mapslices(v -> _derivative(t, v, k, x, nu, bc, wrk), c, dims=2))
 
 derivative(spline::ParametricSpline, x::AbstractVector, nu::Int=1) =
     _derivative(spline.t, spline.c, spline.k,
@@ -678,7 +678,7 @@ derivative(spline::ParametricSpline, x::Real, nu::Int=1) =
 
 _integrate(t::Vector{Float64}, c::Matrix{Float64}, k::Int,
            a::Real, b::Real, wrk::Vector{Float64}) =
-    vec(mapslices(v -> _integrate(t, v, k, a, b, wrk), c, dims=[2]))
+    vec(mapslices(v -> _integrate(t, v, k, a, b, wrk), c, dims=2))
 
 integrate(spline::ParametricSpline, a::Real, b::Real) =
     _integrate(spline.t, spline.c, spline.k, a, b, spline.wrk)
