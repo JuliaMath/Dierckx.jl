@@ -636,7 +636,6 @@ function _ParametricSpline(u::Union{AbstractVector, Nothing}, x::AbstractMatrix,
             ier::Ref{Int32},
         )::Nothing
     end
-    @show fp[]
     ier[] <= 0 || error(_fit1d_messages[ier[]])
 
     resize!(t, n[])
