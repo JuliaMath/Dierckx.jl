@@ -570,7 +570,10 @@ function _ParametricSpline(u::Union{AbstractVector, Nothing}, x::AbstractMatrix,
 
     xin = convert(Matrix{Float64}, x)
     win = convert(Vector{Float64}, w)
-    n = Ref{Int32}(nest)
+    n = Ref{Int32}(periodic ? 2k + 2 : nest)    
+        # NOTE if `periodic==true`, intial `n` has to be minimum number of knots needed for 
+        # constant interpolation due to a bug in Fortran source file `fpclos.f` 
+        # this should resolve `https://github.com/JuliaMath/Dierckx.jl/issues/58
     c = Vector{Float64}(undef, idim*nest)
     fp = Ref{Float64}(0)
     ier = Ref{Int32}(0)
@@ -633,7 +636,6 @@ function _ParametricSpline(u::Union{AbstractVector, Nothing}, x::AbstractMatrix,
             ier::Ref{Int32},
         )::Nothing
     end
-
     ier[] <= 0 || error(_fit1d_messages[ier[]])
 
     resize!(t, n[])
